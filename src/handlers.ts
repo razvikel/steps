@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { createPost, getTopCreators, newestPosts, postsCount } from "./Database/Post/Post.dal";
+import { getAverageRuntimes } from "./Database/Runtime/Runtime.dal";
 import { isCreatePostRequestBody, isGetPostsRequestQuery } from "./typeguards";
 
 export const createPostHandler = async (req: Request, res: Response) => {
@@ -30,4 +31,9 @@ export const postsNumberHandler = async (req: Request, res: Response) => {
 export const topCreatorsHandler = async (req: Request, res: Response) => {
     const topcreators = await getTopCreators();
     res.send({ topcreators })
+}
+
+export const avgRuntimesHandler = async (req: Request, res: Response) => {
+    const runtimes = await getAverageRuntimes();
+    res.send({runtimes});
 }
