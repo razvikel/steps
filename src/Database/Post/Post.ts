@@ -1,10 +1,10 @@
-import { Schema, model, Model } from 'mongoose';
-import { User, userSchema } from '../User/User';
+import { model, Model, Schema } from 'mongoose';
+import { UserID } from '../User/User';
 
 export interface RawPost {
     title: string;
     body: string;
-    creator: User;
+    creator: UserID;
 }
 
 export interface Post extends RawPost {
@@ -14,7 +14,7 @@ export interface Post extends RawPost {
 const postSchema = new Schema({
     title: String,
     body: String,
-    creator: userSchema,
+    creator: String,
     createdAt: Number
 }, { versionKey: false });
 

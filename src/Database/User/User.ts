@@ -1,8 +1,10 @@
 import { Schema, model, Model } from 'mongoose';
 
+export type UserID = string;
+
 export interface User {
+    _id: UserID;
     name: string;
-    _id: string;
 }
 
 export const userSchema = new Schema({
